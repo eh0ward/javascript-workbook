@@ -15,7 +15,13 @@ const rl = readline.createInterface({
 //if hand2 is the winning hand, return "Hard two wins!"
 
 function rockPaperScissors(hand1, hand2) {
-  // Write code here
+  if (hand1 === "rock" && hand2 === "scissor") {
+    console.log(hand1 + " wins");
+  } else if (hand1 === "rock" && hand2 === "paper") {
+    console.log(hand2 + " wins");
+  } else if (hand1 === "rock" && hand2 === "rock") {
+    console.log("It's a Tie!");
+  }
 }
 
 function getPrompt() {
