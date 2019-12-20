@@ -1,5 +1,3 @@
-import { setupMaster } from "cluster";
-
 // 03week Tuesday warmUp
 // 1. Given a number List(array) of numbers write an algorithm that finds the smallest number.Given
 
