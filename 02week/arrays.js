@@ -38,17 +38,17 @@ function describe(person) {
 describe(corey);
 
 // method of indexOf
-let word = "fox";
+// let word = "fox";
 
-let indexOf_o = word.indexOf("o");
-let indexOf_x = word.indexOf("x");
+// let indexOf_o = word.indexOf("o");
+// let indexOf_x = word.indexOf("x");
 
-console.log(indexOf_o, "o");
+// console.log(indexOf_o, "o");
 
-// let word = "elephant";
+let word = "elephant";
 
-// let firstHalf = word.substring(3, 5);
-// let secondHalf = word.substring(2);
+let firstHalf = word.substring(3, 5);
+let secondHalf = word.substring(2);
 
-// console.log("first half = ", firstHalf);
-// console.log("second half = ", secondHalf);
+console.log("first half = ", firstHalf);
+console.log("second half = ", secondHalf);
