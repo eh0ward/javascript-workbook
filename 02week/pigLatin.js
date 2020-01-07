@@ -13,69 +13,38 @@ const rl = readline.createInterface({
 //  - swap the parts
 //  - add 'ay' to the end
 
-// function pigLatin(word) {
-//   // Your code here
-//   return (
-//     word.slice(findFirstVowel(word), word.length) +
-//     word.slice(-word.length, findFirstVowel(word)) +
-//     "ay"
-// word.slice(word.length, findFirstVowel(word)) + "way"
-//   );
-// }
+function findFirstVowel(word) {
+  // console.log("Original Word :", word);
+  console.log("=====Find First Vowel=====");
 
-// function pigLatin(word) {
-//   const vowels = ["a", "e", "i", "o", "u"];
-//   let vowelIndex = 0;
+  const vowel = ["a", "e", "i", "o", "u"];
+  for (var j = 0; j < word.length; j++) {
+    var firstVowel = vowel.indexOf(word[j]);
 
-//   if (vowels.indexOf(word[0])) {
-//     return word + "way";
-//   } else {
-//     for (let char of str) {
-//       // Loop through until the first vowel is found
-//       if (vowels.includes(char)) {
-//         // Store the index at which the first vowel exists
-//         vowelIndex = str.indexOf(char);
-//         break;
-//       }
-//     }
-//     return str.slice(vowelIndex) + str.slice(0, vowelIndex) + "ay";
-//   }
-// }
+    console.log(firstVowel);
 
-// function pigLatin(word) {
-//   const vowels = ["a", "e", "i", "o", "u"];
-//   let vowelIndex = 0;
+    if (vowel.indexOf(word[j]) !== -1) {
+      return j;
+    }
+  }
+}
 
-//   if (vowels.indexOf(word[0])) {
-//     return word + "way";
-//   } else {
-//     for (let char of word) {
-//       if (vowels.indexOf(word[j]) !== -1) {
-//         vowelIndex = word.indexOf(j);
-//       }
-//     }
-//     return (
-//       word.slice(vowelIndex(word), word.length) +
-//       word.slice(0, vowelIndex(word)) +
-//       "ay"
-//     );
-//   }
-// }
+function pigLatin(word) {
+  word = word.toLowerCase();
+  let firstVowel = findFirstVowel(word);
 
-// function pigLatin(word) {
-//   var vowels = ["a", "e", "i", "o", "u"];
-
-//   for (var j = 0; j <= word.length - 1; j++) {
-//     if (vowels.indexOf(word[j]) !== -1) {
-//       return j;
-//     }
-//   }
-//   return word.length + "ay";
-// }
+  // console.log("=====Answer=====");
+  if (firstVowel > 0) {
+    return word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
+  } else {
+    return word + "yay";
+  }
+}
 
 function getPrompt() {
-  rl.question("word ", answer => {
-    console.log(pigLatin(answer));
+  console.log("==========================");
+  rl.question("Original Word : ", answer => {
+    console.log("Translate Word :", pigLatin(answer));
     getPrompt();
   });
 }
