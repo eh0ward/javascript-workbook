@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="guiPigLatin.css" />
     <title>Document</title>
   </head>
   <body>
-    Hello PigLatin
+    <header>pigLatin</header>
     <br />
-    Your Word: <input id="word" />
+    <h1>Word: <input id="word" /></h1>
     <br />
+    <audio id="pigAudio">
+      <source src="./audio/snortingPig.mp3" type="audio/mpeg" />
+    </audio>
     <button onclick="handleClick()">
-      Click me
+      Oink!
     </button>
     <br />
-    Translation:
+    <h1 id="translation">
+      Translation:
+    </h1>
     <span id="translateWord">...</span>
   </body>
-  <script src="pigLatin.js"></script>
+  <script src="guiPigLatin_redo.js"></script>
 </html>
