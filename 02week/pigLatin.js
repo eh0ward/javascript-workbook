@@ -14,11 +14,10 @@ const rl = readline.createInterface({
 //  - add 'ay' to the end
 
 function findFirstVowel(word) {
-  // console.log("Original Word :", word);
+  const vowel = ["a", "e", "i", "o", "u"];
   console.log("=====Find First Vowel=====");
 
-  const vowel = ["a", "e", "i", "o", "u"];
-  for (var j = 0; j < word.length; j++) {
+  for (let j = 0; j < word.length; j++) {
     var firstVowel = vowel.indexOf(word[j]);
 
     console.log(firstVowel);
@@ -33,7 +32,8 @@ function pigLatin(word) {
   word = word.toLowerCase();
   let firstVowel = findFirstVowel(word);
 
-  // console.log("=====Answer=====");
+  console.log("==========================");
+
   if (firstVowel > 0) {
     return word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
   } else {
