@@ -4,15 +4,10 @@ console.log("loading js script");
 
 // +++++++++++ handleClick function ++++++++++++++
 
-// pigAudio.addEventListener("click", pigAudio);
-
-// function pigAudio() {
-//   var pigAudio = document.getElementById("pigAudio");
-//   pigAudio.play();
-// }
-
 function handleClick() {
-  console.log("I am inside the handleClick");
+  let audio = new Audio("audio/snortingPig.mp3");
+  audio.play();
+
   var myInput = document.getElementById("word");
   let word = myInput.value;
   console.log("word :", word);
@@ -22,17 +17,11 @@ function handleClick() {
 
   let translateWord = document.getElementById("translateWord");
   translateWord.innerText = translation;
-  console.log(" I am at the end of handleClick");
 }
 
 // +++++++++++ pigLatin function ++++++++++++++
 
-const assert = require("assert");
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// Find First Vowel
 
 function findFirstVowel(word) {
   const vowel = ["a", "e", "i", "o", "u"];
@@ -49,25 +38,17 @@ function findFirstVowel(word) {
   }
 }
 
+// Translate
+
 function pigLatin(word) {
   word = word.toLowerCase();
   let firstVowel = findFirstVowel(word);
 
-  console.log("==========================");
-
   if (firstVowel > 0) {
     return word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
   } else {
-    return word + "way";
+    return word + "yay";
   }
-}
-
-function getPrompt() {
-  console.log("==========================");
-  rl.question("Original Word : ", answer => {
-    console.log("Translate Word :", pigLatin(answer));
-    getPrompt();
-  });
 }
 
 // Tests
@@ -82,9 +63,9 @@ if (typeof describe === "function") {
       assert.equal(pigLatin("create"), "eatecray");
       assert.equal(pigLatin("valley"), "alleyvay");
     });
-    it('should attach "way" if word begins with vowel', () => {
-      assert.equal(pigLatin("egg"), "eggway");
-      assert.equal(pigLatin("emission"), "emissionway");
+    it('should attach "yay" if word begins with vowel', () => {
+      assert.equal(pigLatin("egg"), "eggyay");
+      assert.equal(pigLatin("emission"), "emissionyay");
     });
     it("should lowercase and trim word before translation", () => {
       assert.equal(pigLatin("HeLlO "), "ellohay");
