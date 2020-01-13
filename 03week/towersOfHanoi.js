@@ -21,7 +21,9 @@ function printStacks() {
 
 // move a single piece from the startStack to the endStack
 function movePiece(startStack, endStack) {
-  // Your code here
+  let moviePiece = stacks[startStack].pop();
+  stacks[endStack].push(movePiece);
+  console.log("moved piece and updated the board");
 }
 
 // if the move is legal return true
