@@ -21,8 +21,8 @@ function printStacks() {
 
 // move a single piece from the startStack to the endStack
 function movePiece(startStack, endStack) {
-  let movePiece = stacks[startStack].pop();
-  stacks[endStack].push(movePiece);
+  let playedPiece = stacks[startStack].pop();
+  stacks[endStack].push(playedPiece);
 }
 
 // if the move is legal return true
@@ -31,7 +31,7 @@ function movePiece(startStack, endStack) {
 //    1. when the end stack is empty OR
 //    2. when the top piece in the start stack is smaller than the top piece in the end stack
 function isLegal(startStack, endStack) {
-  // Your code here
+  if 
 }
 
 // if the player won, return true
