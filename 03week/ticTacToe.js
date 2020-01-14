@@ -59,18 +59,43 @@ function horizontalWin() {
 
 function verticalWin() {
   // Your code here
+  for (let i = 0; i <= 2; i++) {
+    if (
+      board[0][i] == playerTurn &&
+      board[1][i] == playerTurn &&
+      board[2][i] == playerTurn
+    ) {
+      return true;
+    }
+    return false;
+  }
 }
 
 function diagonalWin() {
   // Your code here
+  if (
+    (board[0][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[2][2] == playerTurn) ||
+    (board[2][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[0][2] == playerTurn)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function checkForWin() {
   // Your code here
+  if (horizontalWin || verticalWin || diagonalWin) {
+    console.log("Player X Wins!");
+  }
 }
 
 function ticTacToe(row, column) {
   // Your code here
+  board[row][column] = playerTurn;
 }
 
 function getPrompt() {
@@ -79,6 +104,8 @@ function getPrompt() {
   rl.question("row: ", row => {
     rl.question("column: ", column => {
       ticTacToe(row, column);
+      checkForWin();
+      playerTurn = "X" ? "O" : "X";
       getPrompt();
     });
   });
