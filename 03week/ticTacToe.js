@@ -32,19 +32,9 @@ function printBoard() {
 // else it they have won, print out the winning players name and message
 // make sure to switch the playerturn varialble before you return from the function (but after you print any message )
 
-// const horizontalWin = [
-//   [0, 0],
-//   [0, 1],
-//   [0, 2],
-//   [1, 0],
-//   [1, 1],
-//   [1, 2],
-//   [2, 0],
-//   [2, 1],
-//   [2, 2]
-// ];
+// =============== Tic Tac Toe Start =================
+
 function horizontalWin() {
-  //loop through to check each row
   for (let i = 0; i <= 2; i++) {
     if (
       board[i][0] == playerTurn &&
@@ -58,7 +48,6 @@ function horizontalWin() {
 }
 
 function verticalWin() {
-  // Your code here
   for (let i = 0; i <= 2; i++) {
     if (
       board[0][i] == playerTurn &&
@@ -72,7 +61,6 @@ function verticalWin() {
 }
 
 function diagonalWin() {
-  // Your code here
   if (
     (board[0][0] == playerTurn &&
       board[1][1] == playerTurn &&
@@ -87,14 +75,12 @@ function diagonalWin() {
 }
 
 function checkForWin() {
-  // Your code here
   if (horizontalWin || verticalWin || diagonalWin) {
     console.log("Player X Wins!");
   }
 }
 
 function ticTacToe(row, column) {
-  // Your code here
   board[row][column] = playerTurn;
 }
 
