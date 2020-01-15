@@ -19,52 +19,100 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+// ======================================
 // move a single piece from the startStack to the endStack
 function movePiece(startStack, endStack) {
-  let playedPiece = stacks[startStack].pop();
+  let playedPiece = stacks[startStack].pop(stacks[startStack].length - 1);
   stacks[endStack].push(playedPiece);
 }
 
+// console.log(movePiece);
+
+// ======================================
 // if the move is legal return true
 // if the move is not legal return false
 // a legal move is when there is at least 1 piece in the startStack AND:
 //    1. when the end stack is empty OR
 //    2. when the top piece in the start stack is smaller than the top piece in the end stack
 function isLegal(startStack, endStack) {
-  if 
+  var f = stacks[startStack];
+  var e = stacks[endStack];
+  if (f > 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+// && (f[f.length - 1] < e[e.length - 1] || e == null))
+
+// movePiece;
+// console.log("move");
+
+//   if (
+//     (startStack <= 0 &&
+//       endStack.indexOf(stacks) > startStack.indexOf(stacks)) ||
+//     startStack.lastIndexOf(stacks) < endStack.lastIndexOf(stacks)
+//   ) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// ======================================
 // if the player won, return true
 // if the player did not win, return false
 // a win is when all 4 blocks are in stack b or stack c
 function checkForWin(startStack, endStack) {
   // Your code here
-  stacks[startStack].legnth == 4;
+  if (stacks.b.length == 4 || stacks.c.length == 4) {
+    console.log("You Win!");
+  } else {
+    return false;
+  }
 }
 
+// ======================================
 // takes in the user input for startStack and endStack,
 // and digitally plays round
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-  // check to see if the move is legal.
-  // if the move is legal
-  //     - move the piece
-  // else if the move is not legal
-  //     - tell them the move is not legal
-  // check to see if they won
-  //    - tell them they won!!
+  console.log(isLegal);
+  if ((isLegal = true)) {
+    movePiece(startStack, endStack);
+    checkForWin();
+  } else {
+    console.log("Illegal Move!");
+  }
 }
 
+// Your code here
+// check to see if the move is legal.
+// if the move is legal
+//     - move the piece
+// else if the move is not legal
+//     - tell them the move is not legal
+// check to see if they won
+//    - tell them they won!!
+
+// ======================================
 function getPrompt() {
   printStacks();
   rl.question("start stack: ", startStack => {
     rl.question("end stack: ", endStack => {
       towersOfHanoi(startStack, endStack);
+      checkForWin();
+      var f = stacks[startStack];
+      var e = stacks[endStack];
+      console.log(f);
+      console.log(e);
+      console.log(f[f.length - 1]);
+      console.log(e[e.length - 1]);
       getPrompt();
     });
   });
 }
 
+// ======================================
 // Tests
 
 if (typeof describe === "function") {
