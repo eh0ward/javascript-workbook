@@ -37,27 +37,21 @@ function movePiece(startStack, endStack) {
 function isLegal(startStack, endStack) {
   var f = stacks[startStack];
   var e = stacks[endStack];
-  if (f > 0) {
+  let topStartPiece = f[f.length - 1];
+  let topEndPiece = e[e.length - 1];
+
+  if (
+    f.length > 0 &&
+    (topStartPiece < topEndPiece || topEndPiece === undefined)
+  ) {
+    console.log("the move is legal");
+    movePiece(startStack, endStack);
     return true;
   } else {
+    console.log("the move is not legal");
     return false;
   }
 }
-
-// && (f[f.length - 1] < e[e.length - 1] || e == null))
-
-// movePiece;
-// console.log("move");
-
-//   if (
-//     (startStack <= 0 &&
-//       endStack.indexOf(stacks) > startStack.indexOf(stacks)) ||
-//     startStack.lastIndexOf(stacks) < endStack.lastIndexOf(stacks)
-//   ) {
-//     return true;
-//   }
-//   return false;
-// }
 
 // ======================================
 // if the player won, return true
@@ -67,6 +61,7 @@ function checkForWin(startStack, endStack) {
   // Your code here
   if (stacks.b.length == 4 || stacks.c.length == 4) {
     console.log("You Win!");
+    return true;
   } else {
     return false;
   }
@@ -76,13 +71,8 @@ function checkForWin(startStack, endStack) {
 // takes in the user input for startStack and endStack,
 // and digitally plays round
 function towersOfHanoi(startStack, endStack) {
-  console.log(isLegal);
-  if ((isLegal = true)) {
-    movePiece(startStack, endStack);
-    checkForWin();
-  } else {
-    console.log("Illegal Move!");
-  }
+  isLegal(startStack, endStack);
+  checkForWin();
 }
 
 // Your code here
@@ -100,13 +90,6 @@ function getPrompt() {
   rl.question("start stack: ", startStack => {
     rl.question("end stack: ", endStack => {
       towersOfHanoi(startStack, endStack);
-      checkForWin();
-      var f = stacks[startStack];
-      var e = stacks[endStack];
-      console.log(f);
-      console.log(e);
-      console.log(f[f.length - 1]);
-      console.log(e[e.length - 1]);
       getPrompt();
     });
   });
