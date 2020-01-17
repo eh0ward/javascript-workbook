@@ -35,14 +35,14 @@ function movePiece(startStack, endStack) {
 //    1. when the end stack is empty OR
 //    2. when the top piece in the start stack is smaller than the top piece in the end stack
 function isLegal(startStack, endStack) {
-  var f = stacks[startStack];
+  var s = stacks[startStack];
   var e = stacks[endStack];
-  let topStartPiece = f[f.length - 1];
+  let topStartPiece = s[s.length - 1];
   let topEndPiece = e[e.length - 1];
 
   if (
-    f.length > 0 &&
-    (topStartPiece < topEndPiece || topEndPiece === undefined)
+    s.length > 0 &&
+    (topStartPiece < topEndPiece || topEndPiece == undefined)
   ) {
     console.log("the move is legal");
     movePiece(startStack, endStack);
