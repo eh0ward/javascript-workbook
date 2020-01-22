@@ -29,18 +29,53 @@ function getRandomInt(min, max) {
 }
 
 function generateHint(guess) {
-  // your code here
+  let solutionArray = solution.split("");
+  // console.log(solutionArray);
+  let guessArray = guess.split("");
+  // console.log(guessArray);
+  // +++++++ Counter for Red Hint ++++++++
+  var correctLetterLocations = 0;
+
+  for (let i = 0; i < solutionArray.length; i++) {
+    if (solutionArray[i] === guessArray[i]) {
+      correctLetterLocations++;
+      solutionArray[i] = null;
+    }
+  }
+  // +++++++ Counter for White Hint ++++++++
+  var correctLetters = 0;
+
+  for (let i = 0; i < solutionArray.length; i++) {
+    var targetIndex = solutionArray.indexOf(guessArray[i]);
+    if (targetIndex > -1) {
+      correctLetters++;
+      solutionArray[i] = null;
+    }
+  }
+  return `Red: ${correctLetterLocations} - White: ${correctLetters}`;
 }
 
 function mastermind(guess) {
-  solution = "abcd"; // Comment this out to generate a random solution
-  generateSolution();
-  // your code here
+  // solution = "abcd"; // Comment this out to generate a random solution
+  if (guess == solution) {
+    board = [];
+    return "You guessed it!";
+  } else {
+    var hint = generateHint(guess);
+    board.push(`Guess: ${guess} + Hint: ${hint}`);
+    if (board.length >= 10) {
+      board = [];
+      return "You ran out of turns! The soultion was: " + solution;
+    } else {
+      return "Guess again.";
+    }
+  }
 }
 
 function getPrompt() {
   rl.question("guess: ", guess => {
-    mastermind(guess);
+    // mastermind(guess);
+    console.log(mastermind(guess));
     printBoard();
     getPrompt();
   });
