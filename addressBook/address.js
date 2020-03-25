@@ -7,7 +7,7 @@ window.onload = function() {
 
 function fetchUsers() {
   console.log("About to call api");
-  fetch("https://randomuser.me/api/?results=10")
+  fetch("https://randomuser.me/api/?results=1")
     .then(function(response) {
       console.log("processing the response", response);
       // do something with the response once I get it
@@ -19,6 +19,23 @@ function fetchUsers() {
       processUsers(myJson.results);
     });
 }
+
+// function fetchUsers() {
+//   console.log("About to call api");
+//   fetch(
+//     "https://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?&table=exoplanets&format=ipac&where=pl_kepflag=1"
+//   )
+//     .then(function(response) {
+//       console.log("processing the response", response);
+//       // do something with the response once I get it
+//       return response.json();
+//     })
+//     .then(function(myJson) {
+//       //   do something with the json payload
+//       console.log("process json payload", myJson);
+//       processUsers(myJson.results);
+//     });
+// }
 
 function processUsers(listOfUsers) {
   listOfUsers.forEach(function(user) {
