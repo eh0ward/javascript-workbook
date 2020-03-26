@@ -61,9 +61,23 @@ console.log("-------------------------------");
 console.log("Undefined:");
 console.log("");
 
-const u = undefined;
+let isMale;
 
-console.log(u);
+console.log("variable 'isMale', is:", isMale);
+
+// OR AS A FUNCTION
+console.log("");
+console.log("Standard object example:");
+function object(t) {
+  if (t === undefined) {
+    return "Object has an undefined value!";
+  }
+  return t;
+}
+
+let z;
+
+console.log(object(z));
 
 // Number
 console.log("");
@@ -71,7 +85,7 @@ console.log("-------------------------------");
 console.log("A Number:");
 console.log("");
 
-const b = 8;
+let b = 8;
 
 console.log(b, "is a number");
 
@@ -81,9 +95,14 @@ console.log("-------------------------------");
 console.log("NaN:");
 console.log("");
 
-let z = 5;
+// let z = 5;
 
-console.log(u + z);
+// console.log(u + z);
+
+let newArray = [1, 2, 3, 4];
+let sum = 0;
+
+sum += newArray * 2;
 
 // String
 console.log("");
@@ -91,7 +110,7 @@ console.log("-------------------------------");
 console.log("A String:");
 console.log("");
 
-const s = "This is a string";
+let s = "This is a string";
 
 console.log(s);
 
