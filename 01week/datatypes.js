@@ -2,6 +2,8 @@
 
 console.log("hello");
 
+// +++++ PART ONE - PROGRAMS +++++
+
 //Write a Javascript program display the current date and time.
 console.log("");
 console.log("-------------------------------");
