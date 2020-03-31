@@ -10,7 +10,7 @@ console.log("");
 
 let myDate = new Date();
 
-console.log("the current date and time is", myDate);
+console.log("the current date and time is:", myDate);
 
 //Write a JavaScript program to convert a number to a string.
 console.log("");
@@ -95,14 +95,15 @@ console.log("-------------------------------");
 console.log("NaN:");
 console.log("");
 
-// let z = 5;
+let u = undefined;
+let y = 5;
 
-// console.log(u + z);
+console.log(u + y);
 
-let newArray = [1, 2, 3, 4];
-let sum = 0;
+// let newArray = [1, 2, 3, 4];
+// let arraySum = 0;
 
-sum += newArray * 2;
+// arraySum += newArray * 2;
 
 // String
 console.log("");
@@ -122,8 +123,9 @@ console.log("");
 
 let num1 = 2036;
 let num2 = 1000;
+let sum = num1 + num2;
 
-console.log("2036 + 1000 =", num1 + num2);
+console.log("2036 + 1000 =", sum);
 
 // Write a JavaScript program that runs only when 2 things are true.
 console.log("");
@@ -180,12 +182,22 @@ console.log("");
 
 // +++++ PART TWO - THE DOM +++++
 
-// get the span from the page/document
-// let mySpan = document.getElementById("theTime");
-// change what the inner text of the span says
-// mySpan.innerText = myDate.toString();
+// +++  get the span from the page/document
+// let dateSpan = document.getElementById("theTime");
+// +++ change what the inner text of the span says
+// dateSpan.innerText = myDate.toString();
 
-// let mySpan = document.getElementById("theTime");
-// mySpan.addEventListener("click", function() {
-//   mySpan.innerText = myDate.toString();
-// });
+let dateSpan = document.getElementById("theTime");
+dateSpan.addEventListener("click", function() {
+  dateSpan.innerText = myDate.toString();
+});
+
+let ageSpan = document.getElementById("myAge");
+ageSpan.addEventListener("click", function() {
+  ageSpan.innerText = thisMany.toString();
+});
+
+let sumSpan = document.getElementById("sum");
+sumSpan.addEventListener("click", function() {
+  sumSpan.innerText = sum.toString();
+});
