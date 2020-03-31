@@ -7,38 +7,44 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-//@param {*} hand1 the first hand
-//@param {*} hand2 the sceond hand
+//@param {*} player1 the first hand
+//@param {*} player2 the sceond hand
 
-//if hand1 is equal to hand2, return "It's a tie!"
-//if hand1 is the winning hand, return "Hand one wins!"
-//if hand2 is the winning hand, return "Hand two wins!"
+//if player1 is equal to player2, return "It's A Tie!"
+//if player1 is the winning hand, return "hand one wins!"
+//if player2 is the winning hand, return "hand two wins!"
 
-function rockPaperScissors(hand1, hand2) {
-  if (hand1 === "rock" && hand2 === "scissors") {
-    console.log("Hand one wins");
-  } else if (hand1 === "rock" && hand2 === "paper") {
-    console.log("Hand two wins!");
-  } else if (hand1 === "rock" && hand2 === "rock") {
-    console.log("It's a tie!");
-  } else if (hand1 === "paper" && hand2 === "rock") {
-    console.log("Hand one wins");
-  } else if (hand1 === "paper" && hand2 === "scissors") {
-    console.log("Hand two wins");
-  } else if (hand1 === "paper" && hand2 === "paper") {
-    console.log("It's a tie!");
-  } else if (hand1 === "scissors" && hand2 === "paper") {
-    console.log("Hand one wins!");
-  } else if (hand1 === "scissors" && hand2 === "rock") {
-    console.log("Hand two wins!");
-  } else if (hand1 === "scissors" && hand2 === "scissors") {
-    console.log("It's a tie!");
+const rockPaperScissors = (player1, player2) => {
+  let answer = "";
+  // ++++++++++ ROCK ++++++++++++++++++
+  if (player1 === "rock" && player2 === "scissors" || ) {
+    answer = "Player 1 Wins!";
+  } else if (player1 === "rock" && player2 === "paper") {
+    answer = "Player 2 Wins!";
   }
-}
+
+  // ++++++++++ PAPER +++++++++++++++++
+  else if (player1 === "paper" && player2 === "rock") {
+    answer = "Player 1 Wins!";
+  } else if (player1 === "paper" && player2 === "scissors") {
+    answer = "Player 2 Wins!";
+  }
+
+  // ++++++++++ SCISSORS ++++++++++++++
+  else if (player1 === "scissors" && player2 === "paper") {
+    answer = "Player 1 Wins!";
+  } else if (player1 === "scissors" && player2 === "rock") {
+    answer = "Player 2 Wins!";
+  } else {
+    answer = "It's A Tie!";
+  }
+
+  return answer;
+};
 
 function getPrompt() {
-  rl.question("hand1: ", answer1 => {
-    rl.question("hand2: ", answer2 => {
+  rl.question("Player 1: ", answer1 => {
+    rl.question("Player 2: ", answer2 => {
       console.log(rockPaperScissors(answer1, answer2));
       getPrompt();
     });
@@ -50,19 +56,19 @@ function getPrompt() {
 if (typeof describe === "function") {
   describe("#rockPaperScissors()", () => {
     it("should detect a tie", () => {
-      assert.equal(rockPaperScissors("rock", "rock"), "It's a tie!");
-      assert.equal(rockPaperScissors("paper", "paper"), "It's a tie!");
-      assert.equal(rockPaperScissors("scissors", "scissors"), "It's a tie!");
+      assert.equal(rockPaperScissors("rock", "rock"), "It's A Tie!");
+      assert.equal(rockPaperScissors("paper", "paper"), "It's A Tie!");
+      assert.equal(rockPaperScissors("scissors", "scissors"), "It's A Tie!");
     });
     it("should detect which hand won", () => {
-      assert.equal(rockPaperScissors("rock", "paper"), "Hand two wins!");
-      assert.equal(rockPaperScissors("paper", "scissors"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock", "scissors"), "Hand one wins!");
+      assert.equal(rockPaperScissors("rock", "paper"), "Player 2 Wins!");
+      assert.equal(rockPaperScissors("paper", "scissors"), "Player 2 Wins!");
+      assert.equal(rockPaperScissors("rock", "scissors"), "Player 1 Wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors("rOcK", " paper "), "Hand two wins!");
-      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Hand two wins!");
-      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Hand one wins!");
+      assert.equal(rockPaperScissors("rOcK", " paper "), "Player 2 Wins!");
+      assert.equal(rockPaperScissors("Paper", "SCISSORS"), "Player 2 Wins!");
+      assert.equal(rockPaperScissors("rock ", "sCiSsOrs"), "Player 1 Wins!");
     });
   });
 } else {
