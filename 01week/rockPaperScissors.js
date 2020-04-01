@@ -17,35 +17,37 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 
 const rockPaperScissors = (player1, player2) => {
+  let scrubPlayer1 = player1.toLowerCase().trim();
+  let scrubPlayer2 = player2.toLowerCase().trim();
   let answer = "";
 
   // ++++++++++ Tie +++++++++++++++++++
-  if (player1 === player2) {
+  if (scrubPlayer1 === scrubPlayer2) {
     answer = "It's A Tie!";
   }
 
   // ++++++++++ ROCK ++++++++++++++++++
-  else if (player1 === "rock" && player2 === "scissors") {
+  else if (scrubPlayer1 === "rock" && scrubPlayer2 === "scissors") {
     answer = "Player 1 Wins!";
-  } else if (player1 === "rock" && player2 === "paper") {
+  } else if (scrubPlayer1 === "rock" && scrubPlayer2 === "paper") {
     answer = "Player 2 Wins!";
   }
 
   // ++++++++++ PAPER +++++++++++++++++
-  else if (player1 === "paper" && player2 === "rock") {
+  else if (scrubPlayer1 === "paper" && scrubPlayer2 === "rock") {
     answer = "Player 1 Wins!";
-  } else if (player1 === "paper" && player2 === "scissors") {
+  } else if (scrubPlayer1 === "paper" && scrubPlayer2 === "scissors") {
     answer = "Player 2 Wins!";
   }
 
   // ++++++++++ SCISSORS ++++++++++++++
-  else if (player1 === "scissors" && player2 === "paper") {
+  else if (scrubPlayer1 === "scissors" && scrubPlayer2 === "paper") {
     answer = "Player 1 Wins!";
-  } else if (player1 === "scissors" && player2 === "rock") {
+  } else if (scrubPlayer1 === "scissors" && scrubPlayer2 === "rock") {
     answer = "Player 2 Wins!";
   }
 
-  // ++++++++++ Invalid Input +++++++++++++++++++
+  // ++++++++++ Invalid Input +++++++++
   else {
     answer = "Input Not Valid. Try Again Bruh!";
   }
@@ -57,12 +59,12 @@ const rockPaperScissors = (player1, player2) => {
 // to run the function use the command: node main.js
 // to close it ctrl + C
 function getPrompt() {
-  rl.question("Player 1: ", answer1 => {
-    rl.question("Player 2: ", answer2 => {
+  rl.question("Player 1: ", player1 => {
+    rl.question("Player 2: ", player2 => {
       console.log(
         rockPaperScissors(
-          answer1.toLowerCase().trim(),
-          answer2.toLowerCase().trim()
+          player1.toLowerCase().trim(),
+          player2.toLowerCase().trim()
         )
       );
       getPrompt();
