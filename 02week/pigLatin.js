@@ -13,6 +13,8 @@ const rl = readline.createInterface({
 //  - swap the parts
 //  - add 'ay' to the end
 
+// FIND THE FIRST VOWEL ++++++++
+
 function findFirstVowel(word) {
   const vowel = ["a", "e", "i", "o", "u"];
   console.log("=====Find First Vowel=====");
@@ -27,6 +29,8 @@ function findFirstVowel(word) {
     }
   }
 }
+
+// PIGLATIN FUNCTION +++++++++++
 
 function pigLatin(word) {
   word = word.toLowerCase();
@@ -49,7 +53,7 @@ function getPrompt() {
   });
 }
 
-// Tests
+// Tests +++++++++++++++++++++++
 
 if (typeof describe === "function") {
   describe("#pigLatin()", () => {
