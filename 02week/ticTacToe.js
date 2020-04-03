@@ -29,11 +29,12 @@ function printBoard() {
 // check if they have won ?s
 // if they have not won, and still open slots, do nothing
 // else if they have not won, and thereare no open slots
-// else it they have won, print out the winning players name and message
+// else if they have won, print out the winning players name and message
 // make sure to switch the playerturn varialble before you return from the function (but after you print any message )
 
 // =============== Tic Tac Toe Start =================
 
+// should return true, if the player won on any row
 function horizontalWin() {
   for (let i = 0; i <= 2; i++) {
     if (
@@ -42,11 +43,13 @@ function horizontalWin() {
       board[i][2] == playerTurn
     ) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   }
 }
 
+// should return true, if the player won on any column
 function verticalWin() {
   for (let i = 0; i <= 2; i++) {
     if (
@@ -60,6 +63,7 @@ function verticalWin() {
   }
 }
 
+// should return true, if the player won on any diagonal
 function diagonalWin() {
   if (
     (board[0][0] == playerTurn &&
@@ -74,12 +78,20 @@ function diagonalWin() {
   return false;
 }
 
+// should return true if the player won
+// (if any of the top 3 functions return true, this method should return true)
 function checkForWin() {
   if (horizontalWin || verticalWin || diagonalWin) {
     console.log("Player X Wins!");
+  } else {
+    console.log("Player 2 Wins!");
   }
 }
 
+// set the value on that box
+// check if the player won
+// if they won (say congrats!)
+// switch to player 2
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
 }
