@@ -76,14 +76,9 @@ function getPrompt() {
 
 // ++++++++++ THE DOM +++++++++++++++++
 
-let player1span = document.getElementById("p1span");
-player1span.addEventListener("click", function() {
-  player1span.innerText = scrubPlayer1.toString();
-});
-
-let player2span = document.getElementById("p2span");
-player2span.addEventListener("Click", function() {
-  player2span.innerText = scrubPlayer2.toString();
+let answer = document.getElementById("anser");
+answer.addEventListener("Click", function() {
+  answer.innerText = answer.toString();
 });
 
 // Tests
