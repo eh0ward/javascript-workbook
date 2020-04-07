@@ -7,22 +7,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// if word starts with a vowel add 'yay' to the end.
-// if it has a vowel in the middle.
-//  - split the word in 2 at the vowel
-//  - swap the parts
-//  - add 'ay' to the end
-
 // FIND THE FIRST VOWEL ++++++++
 
 function findFirstVowel(word) {
   const vowel = ["a", "e", "i", "o", "u"];
-  console.log("=====Find First Vowel=====");
+  // console.log("=====Find First Vowel=====");
 
   for (let j = 0; j < word.length; j++) {
-    var firstVowel = vowel.indexOf(word[j]);
+    // var firstVowel = vowel.indexOf(word[j]);
 
-    console.log(firstVowel);
+    // console.log(firstVowel);
 
     if (vowel.indexOf(word[j]) !== -1) {
       return j;
@@ -31,12 +25,11 @@ function findFirstVowel(word) {
 }
 
 // PIGLATIN FUNCTION +++++++++++
+console.log("---- PIG LATIN ----");
 
 function pigLatin(word) {
-  word = word.toLowerCase();
+  word = word.toLowerCase().trim();
   let firstVowel = findFirstVowel(word);
-
-  console.log("==========================");
 
   if (firstVowel > 0) {
     return word.substring(firstVowel) + word.substring(0, firstVowel) + "ay";
@@ -46,9 +39,8 @@ function pigLatin(word) {
 }
 
 function getPrompt() {
-  console.log("==========================");
   rl.question("Original Word : ", answer => {
-    console.log("Translate Word :", pigLatin(answer));
+    console.log("Translate Word :", pigLatin(answer.toLowerCase().trim()));
     getPrompt();
   });
 }
