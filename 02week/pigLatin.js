@@ -11,13 +11,7 @@ const rl = readline.createInterface({
 
 function findFirstVowel(word) {
   const vowel = ["a", "e", "i", "o", "u"];
-  // console.log("=====Find First Vowel=====");
-
   for (let j = 0; j < word.length; j++) {
-    // var firstVowel = vowel.indexOf(word[j]);
-
-    // console.log(firstVowel);
-
     if (vowel.indexOf(word[j]) !== -1) {
       return j;
     }
