@@ -31,6 +31,7 @@ function pigLatin(word) {
     return word + "yay";
   }
 }
+// console.log(pigLatin(""));
 
 function getPrompt() {
   rl.question("Original Word : ", answer => {
@@ -60,16 +61,15 @@ if (typeof describe === "function") {
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
     });
     it("should seperate two words and return them together", () => {
-      assert.equal(pigLatin("Hop Fest"), "Ophay", "Estfay");
-      assert.equal(pigLatin("Dog Park"), "Ogday", "Arkpay");
+      assert.equal(pigLatin("Hop Fest"), "Ophay" + " " + "Estfay");
+      assert.equal(pigLatin("Dog Park"), "Ogday" + " " + "Arkpay");
     });
     it('should seperate two words and return them together should attach "yay" if word begins with vowel', () => {
       assert.equal(
         pigLatin("Immediate Advantage "),
-        "Immediateyay",
-        "Advantageyay"
+        "Immediateyay" + " " + "Advantageyay"
       );
-      assert.equal(pigLatin("Eating Out"), "Eatingyay", "Outyay");
+      assert.equal(pigLatin("Eating Out"), "Eatingyay" + " " + "Outyay");
     });
   });
 } else {
