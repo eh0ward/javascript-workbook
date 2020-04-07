@@ -2,15 +2,15 @@
 
 console.log("DOM TEST");
 
-// brings in the assert module for unit testing
-const assert = require("assert");
-// brings in the readline module to access the command line
-const readline = require("readline");
-// use the readline module to print out to the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// // brings in the assert module for unit testing
+// const assert = require("assert");
+// // brings in the readline module to access the command line
+// const readline = require("readline");
+// // use the readline module to print out to the command line
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 //if player1 is equal to player2, return "It's A Tie!"
 //if player1 is the winning hand, return "hand one wins!"
@@ -76,9 +76,9 @@ function getPrompt() {
 
 // ++++++++++ THE DOM +++++++++++++++++
 
-let answer = document.getElementById("anser");
-answer.addEventListener("Click", function() {
-  answer.innerText = answer.toString();
+let answer = document.getElementById("answer");
+answer.addEventListener("click", function() {
+  answer.innerText = rockPaperScissors("rock", "scissors");
 });
 
 // Tests
@@ -107,5 +107,5 @@ if (typeof describe === "function") {
   });
 } else {
   // always returns ask the user for another input
-  getPrompt();
+  // getPrompt();
 }
