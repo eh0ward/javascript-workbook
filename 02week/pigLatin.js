@@ -60,11 +60,11 @@ if (typeof describe === "function") {
       assert.equal(pigLatin("HeLlO "), "ellohay");
       assert.equal(pigLatin(" RoCkEt"), "ocketray");
     });
-    it("should seperate two words and return them together", () => {
+    it("should separate two words and return them together", () => {
       assert.equal(pigLatin("Hop Fest"), "Ophay" + " " + "Estfay");
       assert.equal(pigLatin("Dog Park"), "Ogday" + " " + "Arkpay");
     });
-    it('should seperate two words and return them together should attach "yay" if word begins with vowel', () => {
+    it('should separate two words and return them together should attach "yay" if word begins with vowel', () => {
       assert.equal(
         pigLatin("Immediate Advantage "),
         "Immediateyay" + " " + "Advantageyay"
