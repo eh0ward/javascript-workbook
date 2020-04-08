@@ -67,9 +67,9 @@ if (typeof describe === "function") {
     it('should separate two words and return them together should attach "yay" if word begins with vowel', () => {
       assert.equal(
         pigLatin("Immediate Advantage "),
-        "Immediateyay" + " " + "Advantageyay"
+        "Immediateyay" + "," + "Advantageyay"
       );
-      assert.equal(pigLatin("Eating Out"), "Eatingyay" + " " + "Outyay");
+      assert.equal(pigLatin("Eating Out"), "Eatingyay" + "," + "Outyay");
     });
   });
 } else {
