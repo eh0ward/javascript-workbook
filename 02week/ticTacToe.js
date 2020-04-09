@@ -37,56 +37,103 @@ function printBoard() {
 // should return true, if the player won on any row
 function horizontalWin() {
   for (let i = 0; i <= 2; i++) {
-    if (
-      board[i][0] == playerTurn &&
-      board[i][1] == playerTurn &&
-      board[i][2] == playerTurn
-    ) {
+    if (board[i][0] && board[i][1] && board[i][2] == playerTurn) {
       return true;
     } else {
       return false;
     }
   }
 }
+// horizontalWin();
+
+// function horizontalWin() {
+//   for (let i = 0; i <= 2; i++) {
+//     if (
+//       board[i][0] == playerTurn &&
+//       board[i][1] == playerTurn &&
+//       board[i][2] == playerTurn
+//     ) {
+//       return true;
+//     }
+//     // else {
+//     //   return false;
+//     // }
+//   }
+// }
 
 // should return true, if the player won on any column
 function verticalWin() {
-  for (let i = 0; i <= 2; i++) {
-    if (
-      board[0][i] == playerTurn &&
-      board[1][i] == playerTurn &&
-      board[2][i] == playerTurn
-    ) {
+  for (let j = 0; j <= 2; j++) {
+    if (board[0][j] && board[1][j] && board[2][j] == playerTurn) {
       return true;
+    } else {
+      return false;
     }
-    return false;
   }
 }
+// verticalWin();
+
+// function verticalWin() {
+//   for (let j = 0; j <= 2; j++) {
+//     if (
+//       board[0][j] == playerTurn &&
+//       board[1][j] == playerTurn &&
+//       board[2][j] == playerTurn
+//     ) {
+//       return true;
+//     }
+//     // else {
+//     // return false;
+//     // }
+//   }
+// }
 
 // should return true, if the player won on any diagonal
 function diagonalWin() {
   if (
-    (board[0][0] == playerTurn &&
-      board[1][1] == playerTurn &&
-      board[2][2] == playerTurn) ||
-    (board[2][0] == playerTurn &&
-      board[1][1] == playerTurn &&
-      board[0][2] == playerTurn)
+    (board[0][0] && board[1][1] && board[2][2] == playerTurn) ||
+    (board[2][0] && board[1][1] && board[0][2] == playerTurn)
   ) {
     return true;
+  } else {
+    return false;
   }
-  return false;
 }
+// diagonalWin();
+
+// function diagonalWin() {
+//   if (
+//     (board[0][0] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[2][2] == playerTurn) ||
+//     (board[2][0] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[0][2] == playerTurn)
+//   ) {
+//     return true;
+//   }
+//   // else {
+//   // return false;
+//   // }
+// }
 
 // should return true if the player won
 // (if any of the top 3 functions return true, this method should return true)
 function checkForWin() {
   if (horizontalWin || verticalWin || diagonalWin) {
-    console.log("Player X Wins!");
+    return true;
   } else {
-    console.log("Player 2 Wins!");
+    return false;
   }
 }
+// checkForWin(playerTurn);
+// console.log(playerTurn);
+//   } else {
+// console.log(checkForWin(playerTurn, "Congrats!"));
+
+// console.log(checkForWin);
+//   }
+// }
 
 // set the value on that box
 // check if the player won
@@ -94,6 +141,13 @@ function checkForWin() {
 // switch to player 2
 function ticTacToe(row, column) {
   board[row][column] = playerTurn;
+  if (playerTurn == checkForWin) {
+    console.log("Congrats!");
+  } else if (playerTurn === "X") {
+    return (playerTurn = "O");
+  } else {
+    return (playerTurn = "X");
+  }
 }
 
 function getPrompt() {
@@ -102,8 +156,7 @@ function getPrompt() {
   rl.question("row: ", row => {
     rl.question("column: ", column => {
       ticTacToe(row, column);
-      checkForWin();
-      playerTurn = "X" ? "O" : "X";
+      // checkForWin();
       getPrompt();
     });
   });
