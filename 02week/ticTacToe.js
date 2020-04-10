@@ -87,6 +87,8 @@ function verticalWin() {
   }
 }
 
+verticalWin();
+
 // should return true, if the player won on any diagonal
 function diagonalWin() {
   let dWin = [0][0];
@@ -100,10 +102,9 @@ function diagonalWin() {
   ) {
     return true;
   }
-  // else {
-  // return false;
-  // }
 }
+
+diagonalWin();
 
 // should return true if the player won
 // (if any of the top 3 functions return true, this method should return true)
@@ -130,11 +131,12 @@ function checkForWin() {
 // if they won (say congrats!)
 // switch to player 2
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
-  if (playerTurn === "X") {
-    return (playerTurn = "O");
-  } else {
-    return (playerTurn = "X");
+  if (playerTurn == "X") {
+    board[row][column] = playerTurn;
+    playerTurn = "O";
+  } else if (playerTurn == "O") {
+    board[row][column] = playerTurn;
+    playerTurn = "X";
   }
 }
 
