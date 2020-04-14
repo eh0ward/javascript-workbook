@@ -1,150 +1,111 @@
 "use strict";
 
-const assert = require("assert");
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+console.log("The DOM");
+
 let board = [
   [" ", " ", " "],
   [" ", " ", " "],
-  [" ", " ", " "]
+  [" ", " ", " "],
 ];
 
-let playerTurn = "X";
+let turn, square, user, computer, row, column;
 
-function printBoard() {
-  console.log("   0  1  2");
-  console.log("0 " + board[0].join(" | "));
-  console.log("  ---------");
-  console.log("1 " + board[1].join(" | "));
-  console.log("  ---------");
-  console.log("2 " + board[2].join(" | "));
-}
-// return true if you have won, other use return
+// let checkedBox = document.getElementById("input-box")
 
-// accept the row and column, the user wants to put a mark on ....
-// place the approptiate mark on the borad
-// check if they have won ?s
-// if they have not won, and still open slots, do nothing
-// else if they have not won, and thereare no open slots
-// else it they have won, print out the winning players name and message
-// make sure to switch the playerturn varialble before you return from the function (but after you print any message )
-
-// =============== Tic Tac Toe Start =================
-
-function horizontalWin() {
-  for (let i = 0; i <= 2; i++) {
-    if (
-      board[i][0] == playerTurn &&
-      board[i][1] == playerTurn &&
-      board[i][2] == playerTurn
-    ) {
-      return true;
+$(document).ready(function () {
+  // listen for input box
+  $(".input-box").click(function () {
+    if ($(this).is(":checked")) {
+      user = $(this).val();
+      turn = user;
+      computer = user == "X" ? "O" : "X";
     }
-    return false;
-  }
-}
-
-function verticalWin() {
-  for (let i = 0; i <= 2; i++) {
-    if (
-      board[0][i] == playerTurn &&
-      board[1][i] == playerTurn &&
-      board[2][i] == playerTurn
-    ) {
-      return true;
-    }
-    return false;
-  }
-}
-
-function diagonalWin() {
-  if (
-    (board[0][0] == playerTurn &&
-      board[1][1] == playerTurn &&
-      board[2][2] == playerTurn) ||
-    (board[2][0] == playerTurn &&
-      board[1][1] == playerTurn &&
-      board[0][2] == playerTurn)
-  ) {
-    return true;
-  }
-  return false;
-}
-
-function checkForWin() {
-  if (horizontalWin || verticalWin || diagonalWin) {
-    console.log("Player X Wins!");
-  }
-}
-
-function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
-}
-
-function getPrompt() {
-  printBoard();
-  console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question("row: ", row => {
-    rl.question("column: ", column => {
-      ticTacToe(row, column);
-      checkForWin();
-      playerTurn = "X" ? "O" : "X";
-      getPrompt();
-    });
   });
-}
 
-// Tests
-
-if (typeof describe === "function") {
-  describe("#ticTacToe()", () => {
-    it("should place mark on the board", () => {
-      ticTacToe(1, 1);
-      assert.deepEqual(board, [
-        [" ", " ", " "],
-        [" ", "X", " "],
-        [" ", " ", " "]
-      ]);
-    });
-    it("should alternate between players", () => {
-      ticTacToe(0, 0);
-      assert.deepEqual(board, [
-        ["O", " ", " "],
-        [" ", "X", " "],
-        [" ", " ", " "]
-      ]);
-    });
-    it("should check for vertical wins", () => {
-      board = [
-        [" ", "X", " "],
-        [" ", "X", " "],
-        [" ", "X", " "]
-      ];
-      assert.equal(verticalWin(), true);
-    });
-    it("should check for horizontal wins", () => {
-      board = [
-        ["X", "X", "X"],
-        [" ", " ", " "],
-        [" ", " ", " "]
-      ];
-      assert.equal(horizontalWin(), true);
-    });
-    it("should check for diagonal wins", () => {
-      board = [
-        ["X", " ", " "],
-        [" ", "X", " "],
-        [" ", " ", "X"]
-      ];
-      assert.equal(diagonalWin(), true);
-    });
-    it("should detect a win", () => {
-      assert.equal(checkForWin(), true);
-    });
+  // listen for square
+  // targets square class
+  $(".square").click(function () {
+    // assigns square variable
+    square = $(this).attr("id");
+    $("#" + square).text(turn);
+    // switch turns
+    turn = turn == user ? computer : user;
   });
-} else {
-  getPrompt();
-}
+});
+
+// let playerTurn = "X";
+
+// // =============== Game Logic =================
+// function horizontalWin() {
+//   //   let hWin = board[0][0];
+//   if (
+//     (board[0][0] == playerTurn &&
+//       board[0][1] == playerTurn &&
+//       board[0][2] == playerTurn) ||
+//     (board[1][0] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[1][2] == playerTurn) ||
+//     (board[2][0] == playerTurn &&
+//       board[2][1] == playerTurn &&
+//       board[2][2] == playerTurn)
+//   ) {
+//     return true;
+//   }
+// }
+
+// horizontalWin();
+
+// function verticalWin() {
+//   //   let vWin = board[0][0];
+//   if (
+//     (board[0][0] == playerTurn &&
+//       board[1][0] == playerTurn &&
+//       board[2][0] == playerTurn) ||
+//     (board[0][1] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[2][1] == playerTurn) ||
+//     (board[0][2] == playerTurn &&
+//       board[1][2] == playerTurn &&
+//       board[2][2] == playerTurn)
+//   ) {
+//     return true;
+//   }
+// }
+
+// verticalWin();
+
+// function diagonalWin() {
+//   //   let dWin = [0][0];
+//   if (
+//     (board[0][0] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[2][2] == playerTurn) ||
+//     (board[0][0] == playerTurn &&
+//       board[1][1] == playerTurn &&
+//       board[2][2] == playerTurn)
+//   ) {
+//     return true;
+//   }
+// }
+
+// diagonalWin();
+
+// function checkForWin() {
+//   if (horizontalWin()) {
+//     return true;
+//   } else if (verticalWin()) {
+//     return true;
+//   } else if (diagonalWin()) {
+//     return true;
+//   }
+// }
+
+// function ticTacToe(row, column) {
+//   if (playerTurn == "X") {
+//     board[row][column] = playerTurn;
+//     playerTurn = "O";
+//   } else if (playerTurn == "O") {
+//     board[row][column] = playerTurn;
+//     playerTurn = "X";
+//   }
+// }

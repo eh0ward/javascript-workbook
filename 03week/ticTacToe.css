@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(168, 193, 202);
+  font-family: monospace;
+  color: mintcream;
+  font-size: 25px;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header {
+  margin-top: 50px;
+}
+
+.player {
+  margin-top: 30px;
+}
+
+.input-box {
+  margin-left: 40px;
+}
+
+.board {
+  margin-top: 50px;
+}
+
+.column {
+  font-size: 0px;
+}
+
+.column div {
+  display: inline-block;
+  font-size: 90px;
+  border: solid 1px mintcream;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 92px;
+}

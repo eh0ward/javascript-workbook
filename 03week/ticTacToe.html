@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="ticTacToe.css" />
+    <script src="/jsdev/jquery-3.5.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- header section -->
+      <div class="header">
+        <h1>Tic Tac Toe</h1>
+      </div>
+      <!-- choose X or O -->
+      <div class="player"></div>
+      <!-- <h3>Choose X or 0</h3> -->
+      <form action="#">
+        <input
+          class="input-box"
+          type="checkbox"
+          name="playerX"
+          value="X"
+        />Player X
+        <input
+          class="input-box"
+          type="checkbox"
+          name="player0"
+          value="0"
+        />Player 0
+      </form>
+      <!-- board container -->
+      <div class="board">
+        <!-- 1st coulmn -->
+        <div class="column">
+          <div id="1" class="square"></div>
+          <div id="2" class="square"></div>
+          <div id="3" class="square"></div>
+        </div>
+
+        <!-- 2nd column -->
+        <div class="column">
+          <div id="4" class="square"></div>
+          <div id="5" class="square"></div>
+          <div id="6" class="square"></div>
+        </div>
+
+        <!-- 3rd column -->
+        <div class="column">
+          <div id="7" class="square"></div>
+          <div id="8" class="square"></div>
+          <div id="9" class="square"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="ticTacToe.js"></script>
+</html>
