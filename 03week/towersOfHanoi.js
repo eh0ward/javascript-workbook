@@ -4,13 +4,13 @@ const assert = require("assert");
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 let stacks = {
   a: [4, 3, 2, 1],
   b: [],
-  c: []
+  c: [],
 };
 
 function printStacks() {
@@ -19,14 +19,19 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-function movePiece() {
+// actually move pieces
+// pop and push
+function movePiece(startStack, endStack) {
   // Your code here
 }
 
-function isLegal() {
+// should return or false depending on if the move is legal
+function isLegal(startStack, endStack) {
   // Your code here
 }
 
+// return true if the player won
+// ie moved all the disks to either tower b or tower c
 function checkForWin() {
   // Your code here
 }
@@ -41,8 +46,8 @@ function towersOfHanoi(startStack, endStack) {
 
 function getPrompt() {
   printStacks();
-  rl.question("start stack: ", startStack => {
-    rl.question("end stack: ", endStack => {
+  rl.question("start stack: ", (startStack) => {
+    rl.question("end stack: ", (endStack) => {
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
@@ -64,7 +69,7 @@ if (typeof describe === "function") {
       stacks = {
         a: [4, 3, 2],
         b: [1],
-        c: []
+        c: [],
       };
       assert.equal(isLegal("a", "b"), false);
     });
@@ -72,7 +77,7 @@ if (typeof describe === "function") {
       stacks = {
         a: [4, 3, 2, 1],
         b: [],
-        c: []
+        c: [],
       };
       assert.equal(isLegal("a", "c"), true);
     });
