@@ -4,32 +4,13 @@ console.log("loading js script");
 
 // +++++++++++ handleClick function ++++++++++++++
 
-// const video = document.querySelector("#myVideo");
-// video.play();
-// video.currentTime = 0;
-
-// const video = document.querySelector("#myVideo");
-// video.pause();
-// video.currentTime = 6;
-
+// will play video when "submit" is clicked
 var vid = document.getElementById("myVideo");
 function playVid() {
   vid.play();
 }
 
-// var vid = document.getElementById("myVideo");
-// function pauseVid() {
-//   vid.pause();
-// }
-
 function handleClick() {
-  // let audio = new Audio("audio/snortingPig.mp3");
-  // audio.play();
-  // let vid = document.getElementById("playVideo");
-  // vid.onplay = function () {
-  //   alert("The Video Will Play");
-  // };
-
   var myInput = document.getElementById("word");
   let word = myInput.value;
   console.log("word :", word);
