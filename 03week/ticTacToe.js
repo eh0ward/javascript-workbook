@@ -33,79 +33,79 @@ $(document).ready(function () {
   });
 });
 
-// let playerTurn = "X";
+let playerTurn = "X";
 
-// // =============== Game Logic =================
-// function horizontalWin() {
-//   //   let hWin = board[0][0];
-//   if (
-//     (board[0][0] == playerTurn &&
-//       board[0][1] == playerTurn &&
-//       board[0][2] == playerTurn) ||
-//     (board[1][0] == playerTurn &&
-//       board[1][1] == playerTurn &&
-//       board[1][2] == playerTurn) ||
-//     (board[2][0] == playerTurn &&
-//       board[2][1] == playerTurn &&
-//       board[2][2] == playerTurn)
-//   ) {
-//     return true;
-//   }
-// }
+// =============== Game Logic =================
+function horizontalWin() {
+  //   let hWin = board[0][0];
+  if (
+    (board[0][0] == playerTurn &&
+      board[0][1] == playerTurn &&
+      board[0][2] == playerTurn) ||
+    (board[1][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[1][2] == playerTurn) ||
+    (board[2][0] == playerTurn &&
+      board[2][1] == playerTurn &&
+      board[2][2] == playerTurn)
+  ) {
+    return true;
+  }
+}
 
-// horizontalWin();
+horizontalWin();
 
-// function verticalWin() {
-//   //   let vWin = board[0][0];
-//   if (
-//     (board[0][0] == playerTurn &&
-//       board[1][0] == playerTurn &&
-//       board[2][0] == playerTurn) ||
-//     (board[0][1] == playerTurn &&
-//       board[1][1] == playerTurn &&
-//       board[2][1] == playerTurn) ||
-//     (board[0][2] == playerTurn &&
-//       board[1][2] == playerTurn &&
-//       board[2][2] == playerTurn)
-//   ) {
-//     return true;
-//   }
-// }
+function verticalWin() {
+  //   let vWin = board[0][0];
+  if (
+    (board[0][0] == playerTurn &&
+      board[1][0] == playerTurn &&
+      board[2][0] == playerTurn) ||
+    (board[0][1] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[2][1] == playerTurn) ||
+    (board[0][2] == playerTurn &&
+      board[1][2] == playerTurn &&
+      board[2][2] == playerTurn)
+  ) {
+    return true;
+  }
+}
 
-// verticalWin();
+verticalWin();
 
-// function diagonalWin() {
-//   //   let dWin = [0][0];
-//   if (
-//     (board[0][0] == playerTurn &&
-//       board[1][1] == playerTurn &&
-//       board[2][2] == playerTurn) ||
-//     (board[0][0] == playerTurn &&
-//       board[1][1] == playerTurn &&
-//       board[2][2] == playerTurn)
-//   ) {
-//     return true;
-//   }
-// }
+function diagonalWin() {
+  //   let dWin = [0][0];
+  if (
+    (board[0][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[2][2] == playerTurn) ||
+    (board[0][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[2][2] == playerTurn)
+  ) {
+    return true;
+  }
+}
 
-// diagonalWin();
+diagonalWin();
 
-// function checkForWin() {
-//   if (horizontalWin()) {
-//     return true;
-//   } else if (verticalWin()) {
-//     return true;
-//   } else if (diagonalWin()) {
-//     return true;
-//   }
-// }
+function checkForWin() {
+  if (horizontalWin()) {
+    return true;
+  } else if (verticalWin()) {
+    return true;
+  } else if (diagonalWin()) {
+    return true;
+  }
+}
 
-// function ticTacToe(row, column) {
-//   if (playerTurn == "X") {
-//     board[row][column] = playerTurn;
-//     playerTurn = "O";
-//   } else if (playerTurn == "O") {
-//     board[row][column] = playerTurn;
-//     playerTurn = "X";
-//   }
-// }
+function ticTacToe(row, column) {
+  if (playerTurn == "X") {
+    board[row][column] = playerTurn;
+    playerTurn = "O";
+  } else if (playerTurn == "O") {
+    board[row][column] = playerTurn;
+    playerTurn = "X";
+  }
+}
