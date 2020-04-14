@@ -8,12 +8,9 @@ let board = [
   [" ", " ", " "],
 ];
 
-let turn, square, user, computer, row, column;
-
-// let checkedBox = document.getElementById("input-box")
+let turn, sqrId, user, computer, row, col;
 
 $(document).ready(function () {
-  // listen for input box
   $(".input-box").click(function () {
     if ($(this).is(":checked")) {
       user = $(this).val();
@@ -22,16 +19,25 @@ $(document).ready(function () {
     }
   });
 
-  // listen for square
-  // targets square class
+  // let square = document.getElementsByClassName(".square").attr("id");
+  // square.addEventListener("click", function () {
+  //   square.innertext = ticTacToe();
+  // });
   $(".square").click(function () {
-    // assigns square variable
-    square = $(this).attr("id");
-    $("#" + square).text(turn);
-    // switch turns
+    sqrId = $(this).attr("id");
+    $("#" + sqrId).text(turn);
     turn = turn == user ? computer : user;
   });
+
+  $(".reset").click(function () {
+    resetBoard();
+  });
 });
+
+function resetBoard() {
+  $(".square").text("");
+  $(".input-box").prop("checked", false);
+}
 
 let playerTurn = "X";
 

@@ -1,15 +1,9 @@
 "use strict";
 
-const assert = require("assert");
-const readline = require("readline");
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 let board = [
   [" ", " ", " "],
   [" ", " ", " "],
-  [" ", " ", " "]
+  [" ", " ", " "],
 ];
 
 let playerTurn = "X";
@@ -87,8 +81,8 @@ function ticTacToe(row, column) {
 function getPrompt() {
   printBoard();
   console.log("It's Player " + playerTurn + "'s turn.");
-  rl.question("row: ", row => {
-    rl.question("column: ", column => {
+  rl.question("row: ", (row) => {
+    rl.question("column: ", (column) => {
       ticTacToe(row, column);
       checkForWin();
       playerTurn = "X" ? "O" : "X";
@@ -106,7 +100,7 @@ if (typeof describe === "function") {
       assert.deepEqual(board, [
         [" ", " ", " "],
         [" ", "X", " "],
-        [" ", " ", " "]
+        [" ", " ", " "],
       ]);
     });
     it("should alternate between players", () => {
@@ -114,14 +108,14 @@ if (typeof describe === "function") {
       assert.deepEqual(board, [
         ["O", " ", " "],
         [" ", "X", " "],
-        [" ", " ", " "]
+        [" ", " ", " "],
       ]);
     });
     it("should check for vertical wins", () => {
       board = [
         [" ", "X", " "],
         [" ", "X", " "],
-        [" ", "X", " "]
+        [" ", "X", " "],
       ];
       assert.equal(verticalWin(), true);
     });
@@ -129,7 +123,7 @@ if (typeof describe === "function") {
       board = [
         ["X", "X", "X"],
         [" ", " ", " "],
-        [" ", " ", " "]
+        [" ", " ", " "],
       ];
       assert.equal(horizontalWin(), true);
     });
@@ -137,7 +131,7 @@ if (typeof describe === "function") {
       board = [
         ["X", " ", " "],
         [" ", "X", " "],
-        [" ", " ", "X"]
+        [" ", " ", "X"],
       ];
       assert.equal(diagonalWin(), true);
     });
