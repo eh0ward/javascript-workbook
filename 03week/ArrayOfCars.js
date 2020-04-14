@@ -14,6 +14,8 @@ console.log("  ");
 // 2.concat
 // Create another array called more cars with 4 more different types of cars. The last car type should be Honda.
 // Use the concat method to combine the cars and moreCars arrays into an array called totalCars.
+console.log("==== Method 1 ====");
+console.log("totalCars = cars.concat(moreCars);");
 
 const moreCars = ["BMW", "Toyota", "Mercedes", "Honda"];
 
@@ -21,9 +23,11 @@ totalCars = cars.concat(moreCars);
 console.log(totalCars);
 
 // +++ OR you can use this concat method...
+console.log("==== Method 2 ====");
+console.log("totalCars = [].concat(cars, moreCars);");
 
-// totalCars = [].concat(carsArray, moreCars);
-// console.log(totalCars);
+totalCars = [].concat(cars, moreCars);
+console.log(totalCars);
 
 console.log("==================================");
 console.log("3. indexOf and lastIndexOf");
