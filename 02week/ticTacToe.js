@@ -29,59 +29,115 @@ function printBoard() {
 // check if they have won ?s
 // if they have not won, and still open slots, do nothing
 // else if they have not won, and thereare no open slots
-// else it they have won, print out the winning players name and message
+// else if they have won, print out the winning players name and message
 // make sure to switch the playerturn varialble before you return from the function (but after you print any message )
 
 // =============== Tic Tac Toe Start =================
 
+// should return true, if the player won on any row
 function horizontalWin() {
-  for (let i = 0; i <= 2; i++) {
-    if (
-      board[i][0] == playerTurn &&
-      board[i][1] == playerTurn &&
-      board[i][2] == playerTurn
-    ) {
-      return true;
-    }
-    return false;
+  let hWin = board[0][0];
+  if (
+    (board[0][0] == playerTurn &&
+      board[0][1] == playerTurn &&
+      board[0][2] == playerTurn) ||
+    (board[1][0] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[1][2] == playerTurn) ||
+    (board[2][0] == playerTurn &&
+      board[2][1] == playerTurn &&
+      board[2][2] == playerTurn)
+  ) {
+    return true;
   }
 }
 
+horizontalWin();
+
+// function horizontalWin() {
+//   for (let i = 0; i <= 2; i++) {
+//     if (
+//       board[i][0] == playerTurn &&
+//       board[i][1] == playerTurn &&
+//       board[i][2] == playerTurn
+//     ) {
+//       return true;
+//     }
+//     // else {
+//     //   return false;
+//     // }
+//   }
+// }
+
+// should return true, if the player won on any column
 function verticalWin() {
-  for (let i = 0; i <= 2; i++) {
-    if (
-      board[0][i] == playerTurn &&
-      board[1][i] == playerTurn &&
-      board[2][i] == playerTurn
-    ) {
-      return true;
-    }
-    return false;
+  let vWin = board[0][0];
+  if (
+    (board[0][0] == playerTurn &&
+      board[1][0] == playerTurn &&
+      board[2][0] == playerTurn) ||
+    (board[0][1] == playerTurn &&
+      board[1][1] == playerTurn &&
+      board[2][1] == playerTurn) ||
+    (board[0][2] == playerTurn &&
+      board[1][2] == playerTurn &&
+      board[2][2] == playerTurn)
+  ) {
+    return true;
   }
 }
 
+verticalWin();
+
+// should return true, if the player won on any diagonal
 function diagonalWin() {
+  let dWin = [0][0];
   if (
     (board[0][0] == playerTurn &&
       board[1][1] == playerTurn &&
       board[2][2] == playerTurn) ||
-    (board[2][0] == playerTurn &&
+    (board[0][0] == playerTurn &&
       board[1][1] == playerTurn &&
-      board[0][2] == playerTurn)
+      board[2][2] == playerTurn)
   ) {
     return true;
   }
-  return false;
 }
 
+diagonalWin();
+
+// should return true if the player won
+// (if any of the top 3 functions return true, this method should return true)
 function checkForWin() {
-  if (horizontalWin || verticalWin || diagonalWin) {
-    console.log("Player X Wins!");
+  if (horizontalWin()) {
+    return true;
+  } else if (verticalWin()) {
+    return true;
+  } else if (diagonalWin()) {
+    return true;
   }
 }
+// checkForWin(playerTurn);
+// console.log(playerTurn);
+//   } else {
+// console.log(checkForWin(playerTurn, "Congrats!"));
 
+// console.log(checkForWin);
+//   }
+// }
+
+// set the value on that box
+// check if the player won
+// if they won (say congrats!)
+// switch to player 2
 function ticTacToe(row, column) {
-  board[row][column] = playerTurn;
+  if (playerTurn == "X") {
+    board[row][column] = playerTurn;
+    playerTurn = "O";
+  } else if (playerTurn == "O") {
+    board[row][column] = playerTurn;
+    playerTurn = "X";
+  }
 }
 
 function getPrompt() {
@@ -90,8 +146,7 @@ function getPrompt() {
   rl.question("row: ", row => {
     rl.question("column: ", column => {
       ticTacToe(row, column);
-      checkForWin();
-      playerTurn = "X" ? "O" : "X";
+      // checkForWin();
       getPrompt();
     });
   });
