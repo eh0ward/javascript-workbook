@@ -3,9 +3,7 @@ body {
   min-height: 760px;
   background: #000;
   mix-blend-mode: color #000;
-  /* background-image: url(./img/angry-birds-alone-pig-hd-wallpaper-wallpaper-preview.jpg); */
   background-repeat: no-repeat;
-  /* background-position: center; */
   background-position: fixed;
   background-size: cover;
   padding-bottom: 10px;
@@ -44,7 +42,7 @@ header {
 }
 
 h1 {
-  margin-left: 595px;
+  margin-left: 795px;
   color: rgba(240, 241, 240, 0.829);
   font-size: 20px;
   padding-top: 20px;
@@ -60,7 +58,7 @@ h1 {
 }
 
 button {
-  margin-left: 745px;
+  margin-left: 945px;
   color: rgba(240, 241, 240, 0.829);
   /* color: rgba(94, 85, 126, 0.781); */
   font-size: 20px;
@@ -81,14 +79,11 @@ button {
 }
 
 span {
-  margin-left: 750px;
+  margin-left: 950px;
   /* color: rgba(71, 173, 68, 0.829); */
   color: rgb(0, 0, 0);
   font-size: 80px;
   background-color: transparent;
-  /* padding-left: 150px; */
-  /* font-family: "Courier New", Courier, monospace; */
-  /* font-weight: lighter; */
   letter-spacing: 5px;
 }
 
@@ -101,6 +96,4 @@ span {
   border-color: rgba(240, 241, 240, 0.829);
   border-radius: 3%;
   border-width: 1.25px;
-  /* font-family: "Courier New", Courier, monospace; */
-  /* font-weight: lighter; */
 }
