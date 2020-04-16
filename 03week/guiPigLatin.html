@@ -8,18 +8,23 @@
     <title>Document</title>
   </head>
   <body>
-    <header>pigLatin</header>
-    <br />
-    <h1>Word: <input id="word" /></h1>
-    <br />
-    <button onclick="handleClick()">
-      Oinkyay!
-    </button>
-    <br />
-    <h1 id="translation">
-      Translation:
-    </h1>
-    <span id="translateWord">...</span>
+    <video id="myVideo">
+      <source src="./img/what.mp4" type="video/mp4" />
+    </video>
+    <div class="content">
+      <header>pigLatin</header>
+      <br />
+      <h1>Word: <input id="word" /></h1>
+      <br />
+      <button onclick="playVid(), handleClick()">
+        Oinkyay!
+      </button>
+      <br />
+      <h1 id="translation">
+        Translation:
+      </h1>
+      <span id="translateWord">...</span>
+    </div>
   </body>
-  <script src="guiPigLatin_redo.js"></script>
+  <script src="guiPigLatin.js"></script>
 </html>
