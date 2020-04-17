@@ -7,30 +7,15 @@
   </head>
   <body>
     <h1>TO DO LIST</h1>
-    <ul>
-      <li>
-        <span>Give Franco A Bath</span>
-        <button>Delete</button>
-      </li>
-      <li>
-        <span>Go To Pet Supermarket</span>
-        <button>Delete</button>
-      </li>
-      <li>
-        <span>Do Homework</span>
-        <button>Delete</button>
-      </li>
-      <li>
-        <span class="done">Clean Apartment</span>
-        <button>Delete</button>
-      </li>
-    </ul>
-    <input type="text" /> <button>Add</button>
-    <style>
-      .done {
-        text-decoration: line-through;
-      }
-    </style>
+    <div id="ulWrapper">
+      <ul></ul>
+    </div>
+    <input type="text" id="inputText" /><button id="addButton">Add</button>
   </body>
-  <script src="./toDo.js"></script>
+  <style>
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+  <script src="toDo.js"></script>
 </html>
