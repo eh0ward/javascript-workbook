@@ -22,26 +22,45 @@ function printStacks() {
 // actually move pieces
 // pop and push
 function movePiece(startStack, endStack) {
-  // Your code here
+  let playedPiece = stacks[startStack].pop(stacks[startStack].length - 1);
+  stacks[endStack].push(playedPiece);
 }
 
 // should return or false depending on if the move is legal
 function isLegal(startStack, endStack) {
-  // Your code here
+  let s = stacks[startStack];
+  let e = stacks[endStack];
+  let topStartPiece = s[s.length - 1];
+  let topEndPiece = e[e.length - 1];
+
+  if (
+    s.length > 0 &&
+    (topStartPiece < topEndPiece || topEndPiece == undefined)
+  ) {
+    movePiece(startStack, endStack);
+    console.log("Legal Move!");
+    return true;
+  } else {
+    console.log("Illegal Move!");
+    return false;
+  }
 }
 
 // return true if the player won
 // ie moved all the disks to either tower b or tower c
 function checkForWin() {
-  // Your code here
+  if (stacks.b.length == 4 || stacks.c.length == 4) {
+    console.log("You Win!");
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Entry part of game
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
-
-  let fromStack = stacks[startStack];
-  let toStack = stacks[endStack];
+  isLegal(startStack, endStack);
+  checkForWin();
 }
 
 function getPrompt() {
