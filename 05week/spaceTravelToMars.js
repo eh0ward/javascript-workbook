@@ -6,25 +6,11 @@ let jobTypes = {
   pilot: "MAV",
   mechanic: "Repair Ship",
   commander: "Main Ship",
-  programmer: "Any Ship!"
+  programmer: "Any Ship!",
 };
 
 // class represents a crew memeber
 // crewmemeber should have a name, job, and specialSkill
-// you should have a method on the crew called enter ship
-// this method should take in a ship as input
-// this method should update the ship's ability
-
-// class represents a ship
-// ship has a name, a type, an ability, crew array
-// ship constructor should set an array called crew to be any empty array
-
-// ship should have a method called missionStatement()
-// this method should return "Can't perform mission yet." if it has no crew
-// this method should return the ship's ability, if there is atleast 1 crew member
-
-// Your code here
-
 class CrewMember {
   constructor(_name, _job, _specialSkill) {
     this.name = _name;
@@ -32,11 +18,17 @@ class CrewMember {
     this.specialSkill = _specialSkill;
   }
 
+  // you should have a method on the crew called enter ship
+  // this method should take in a ship as input
+  // this method should update the ship's ability
   enterShip(ship) {
     ship.crewArr.push(this);
   }
 }
 
+// class represents a ship
+// ship has a name, a type, an ability, crew array
+// ship constructor should set an array called crew to be any empty array
 class Ship {
   constructor(_name, _type, _ability) {
     this.name = _name;
@@ -45,6 +37,9 @@ class Ship {
     this.crewArr = [];
   }
 
+  // ship should have a method called missionStatement()
+  // this method should return "Can't perform mission yet." if it has no crew
+  // this method should return the ship's ability, if there is atleast 1 crew member
   missionStatement() {
     if (this.crewArr.length <= 0) {
       return "Can't perform mission yet.";
@@ -59,18 +54,18 @@ let crewMember2 = new CrewMember("Commander Lewis", "commander", "geology");
 let mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
 let hermes = new Ship("Hermes", "Main Ship", "Interplanetary Space Travel");
 
+// crewMember1.enterShip(mav);
 // console.log(mav.crewArr);
+// console.log(mav.missionStatement());
 
-// crewMember2.enterShip(hermes);
-
-// console.log(hermes.crewArr);
-
-// console.log(hermes.missionStatement());
+crewMember2.enterShip(hermes);
+console.log(hermes.crewArr);
+console.log(hermes.missionStatement());
 
 //tests
 if (typeof describe === "function") {
-  describe("CrewMember", function() {
-    it("should have a name, a job, a specialSkill and ship upon instantiation", function() {
+  describe("CrewMember", function () {
+    it("should have a name, a job, a specialSkill and ship upon instantiation", function () {
       var crewMember1 = new CrewMember("Rick Martinez", "pilot", "chemistry");
       assert.equal(crewMember1.name, "Rick Martinez");
       assert.equal(crewMember1.job, "pilot");
@@ -78,7 +73,7 @@ if (typeof describe === "function") {
       assert.equal(crewMember1.ship, null);
     });
 
-    it("can enter a ship", function() {
+    it("can enter a ship", function () {
       let mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
       let crewMember1 = new CrewMember("Rick Martinez", "pilot", "chemistry");
       crewMember1.enterShip(mav);
@@ -88,8 +83,8 @@ if (typeof describe === "function") {
     });
   });
 
-  describe("Ship", function() {
-    it("should have a name, a type, an ability and an empty crew upon instantiation", function() {
+  describe("Ship", function () {
+    it("should have a name, a type, an ability and an empty crew upon instantiation", function () {
       let mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
       assert.equal(mav.name, "Mars Ascent Vehicle");
       assert.equal(mav.type, "MAV");
@@ -97,7 +92,7 @@ if (typeof describe === "function") {
       assert.equal(mav.crew.length, 0);
     });
 
-    it("can return a mission statement correctly", function() {
+    it("can return a mission statement correctly", function () {
       let mav = new Ship("Mars Ascent Vehicle", "MAV", "Ascend into low orbit");
       let crewMember1 = new CrewMember("Rick Martinez", "pilot", "chemistry");
       let hermes = new Ship(
