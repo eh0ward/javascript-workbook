@@ -124,6 +124,11 @@ let bdayBefore1990 = arrayOfPersons.filter(function (date) {
 
 console.log(bdayBefore1990);
 
+// +++ Yousif, how could I get it to run using an => function ????!!!! +++
+
+// let bdayBefore1990 = arrayOfPersons.filter((date) => date.birthDate[2] < 1990);
+// console.log(bdayBefore1990);
+
 console.log("-------------------");
 console.log("loops.js complete");
 console.log("-------------------");
