@@ -44,8 +44,10 @@ function displayContacts(contactList) {
     pic.setAttribute("src", user.picture.large);
     ul.appendChild(pic);
 
-    // Create button
+    // Add a button to each user that when clicked
+    // displays the rest of their information like DOB, address, profile image, and so forth.
     let button = document.createElement("button");
+    li.appendChild(button);
     button.innerText = "Contact Info";
 
     // Add an event listener to display contact's info under "Contact Info"
@@ -86,9 +88,5 @@ function displayContacts(contactList) {
       pic.setAttribute("src", user.picture.large);
       ulInfo.append(pic);
     });
-
-    // Add a button to each user that when clicked
-    // displays the rest of their information like DOB, address, profile image, and so forth.
-    li.appendChild(button);
   });
 }
