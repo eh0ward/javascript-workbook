@@ -39,10 +39,10 @@ function displayContacts(contactList) {
     li.innerText = user.name.first + " " + user.name.last + " ";
     ul.appendChild(li);
 
-    let pic = document.createElement("img");
-    pic.classList.add("thumbnail");
-    pic.setAttribute("src", user.picture.large);
-    ul.appendChild(pic);
+    let thumbnailPic = document.createElement("img");
+    thumbnailPic.classList.add("thumbnail");
+    thumbnailPic.setAttribute("src", user.picture.thumbnail);
+    ul.appendChild(thumbnailPic);
 
     // Add a button to each user that when clicked
     // displays the rest of their information like DOB, address, profile image, and so forth.
@@ -83,10 +83,10 @@ function displayContacts(contactList) {
       ulInfo.appendChild(liDOB);
 
       //   Profile picture
-      pic = document.createElement("img");
-      pic.classList.add("profilePic");
-      pic.setAttribute("src", user.picture.large);
-      ulInfo.append(pic);
+      let profilePic = document.createElement("img");
+      profilePic.classList.add("profilePic");
+      profilePic.setAttribute("src", user.picture.large);
+      ulInfo.append(profilePic);
     });
   });
 }
