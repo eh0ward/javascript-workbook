@@ -36,9 +36,11 @@ function displayContacts(contactList) {
     let ul = document.getElementById("contacts");
     let li = document.createElement("li");
 
+    // User
     li.innerText = user.name.first + " " + user.name.last + " ";
     ul.appendChild(li);
 
+    // Thumbnail
     let thumbnailPic = document.createElement("img");
     thumbnailPic.classList.add("thumbnail");
     thumbnailPic.setAttribute("src", user.picture.thumbnail);
