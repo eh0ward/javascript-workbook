@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dodgeBall.css" />
+    <title>Dodgeball - Checkpoint 2</title>
+  </head>
+  <body>
+    <div>
+      <!-- This div will hold a list of the tryouts eligable to be drafted once the "List of Tryouts" button has been clicked -->
+      <h1>Tryout Pool</h1>
+      <ul id="people"></ul>
+    </div>
+
+    <!-- Button created to add tryouts to "Draft Pool" -->
+    <!-- When clicked, creates a list of eligable players to be add to the "Draft Pool". -->
+    <button onclick="listPeopleChoices()">List of Tryouts</button>
+
+    <hr />
+
+    <div>
+      <h1>Draft Pool</h1>
+      <ul id="players"></ul>
+    </div>
+
+    <hr />
+
+    <h1 id="teamsFont">◊◊◊◊ Teams ◊◊◊◊</h1>
+    <div class="teams">
+      <div>
+        <h2 id="blue-team">Blue Team</h2>
+        <ul id="blue"></ul>
+      </div>
+      <div>
+        <h2 id="red-team">Red Team</h2>
+        <ul id="red"></ul>
+      </div>
+    </div>
+    <script src="dodgeBall.js"></script>
+  </body>
+</html>
