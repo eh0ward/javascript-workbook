@@ -1,0 +1,109 @@
+body {
+  background-color: rgb(12, 11, 11);
+  color: rgb(196, 199, 201);
+  text-align: center;
+  margin-top: 30px;
+}
+
+h1 {
+  font-size: 40px;
+  text-decoration-line: underline;
+  /* text-decoration-style: dotted; */
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+  text-decoration-color: rgb(255, 255, 255);
+}
+
+/* #people {
+  display: flex;
+  flex-direction: column;
+} */
+
+hr {
+  border-color: rgb(255, 255, 255);
+  margin-bottom: 40px;
+}
+
+button {
+  margin: auto 0px;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* margin-top: 20px; */
+  margin-top: 20px;
+  margin-bottom: 12px;
+  background-color: rgb(234, 236, 237);
+}
+
+.button {
+  margin: auto;
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  background-color: rgb(196, 199, 201);
+  /* justify-items: right; */
+}
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  list-style-type: none;
+  letter-spacing: 1px;
+}
+
+h2 {
+  letter-spacing: 2px;
+  color: rgb(255, 255, 255);
+}
+
+/* #teamsFont {
+  font-size: 35px;
+} */
+
+.teams {
+  display: flex;
+  justify-content: space-around;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
+}
+
+.blueButton {
+  margin: auto;
+  background-color: blue;
+  color: rgb(255, 255, 255);
+  border-color: rgb(12, 11, 11);
+  border-radius: 40%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* justify-items: right; */
+}
+
+.redButton {
+  margin: auto;
+  background-color: red;
+  color: rgb(255, 255, 255);
+  border-color: rgb(12, 11, 11);
+  border-radius: 40%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* justify-items: right; */
+}
+
+#blue-team {
+  color: blue;
+}
+
+#red-team {
+  color: red;
+}
+
+#blue {
+  color: blue;
+}
+
+#red {
+  color: red;
+}
